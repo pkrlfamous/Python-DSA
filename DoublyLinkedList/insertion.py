@@ -24,11 +24,12 @@ class DoublyLinkedList:
         self.tail = node
 
     def insertIntoList(self, value, position):
-        node = Node(value)
 
         if self.head is None:
             print("The node cannot be inserted.")
             return
+        
+        node = Node(value)
         
         if position == 0:
             node.next = self.head
@@ -60,6 +61,7 @@ dll.creation(0)
 # print([node.value for node in dll])
 
 dll.insertIntoList(1,1)
+dll.insertIntoList(2,2)
 dll.insertIntoList(2,2)
 
 print([node.value for node in dll])
