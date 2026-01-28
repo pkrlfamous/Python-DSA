@@ -13,8 +13,6 @@ class SinglyLinkedList:
         while node:
             yield node
             node = node.next
-            
-    
     
 
     def insertSinglyLinkedList(self, value, position):
