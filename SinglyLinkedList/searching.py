@@ -54,20 +54,25 @@ class SinglyLinkedList:
                 node = node.next
     
     def search(self, value):
-        node = self.head
         count = 0
-
-        if self.head is None:
-            print('empty list')
+        node = self.head
+        found = False
+        if node is None:
+            print('Empty list')
             return
+        
+        while(node):
+            count += 1
+            if node.value == value:
+              found = True
+              break
+            else:  
+                node = node.next
+        
+        if not found:
+            print(f"{value} not found.")
         else:
-            while node.next is not None:
-                count += 1
-                if node.value == value:
-                    break
-                else:
-                    node = node.next
-        print(f"Result: {count if count > 0 else 'not found'}")
+            print(f"{value} found in {count} position.")
 
 sll = SinglyLinkedList()
 
@@ -79,5 +84,6 @@ sll.insertIntoList(4,4)
 
 print([node.value for node in sll])
 sll.search(2)
+sll.search("23")
 
 # sll.traverse()
