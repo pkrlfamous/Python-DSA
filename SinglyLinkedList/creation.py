@@ -1,6 +1,6 @@
 class Node:
-    def __init__(self,data):
-        self.data = data
+    def __init__(self,value):
+        self.value = value
         self.next = None
 
 class SinglyLinkedList:
@@ -44,7 +44,7 @@ class SinglyLinkedList:
                     return
                 newnode.next = tempnode.next
                 tempnode.next = newnode
-                if newnode.next == None:
+                if tempnode == self.tail:
                     self.tail = newnode
                 # nextNode = tempNode.next
                 # tempNode.next = newnode
@@ -55,9 +55,9 @@ class SinglyLinkedList:
     def printVal(self):
         values = []
         node = self.head
-        print('here',node.data)
+        print('here',node.value)
         while node:
-            values.append(node.data)
+            values.append(node.value)
             node = node.next
         print(values)
 
@@ -75,4 +75,4 @@ singlyLinkedList.insertSinglyLinkedList(20, -1)
 
 # what does iter do? the iter allows to loop over the         
 
-print([node.data for node in singlyLinkedList])
+print([node.value for node in singlyLinkedList])

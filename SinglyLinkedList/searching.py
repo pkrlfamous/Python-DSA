@@ -10,17 +10,19 @@ class SinglyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-
+    
     def __iter__(self):
         node = self.head
+
         while node:
             yield node
             node = node.next
+    
 
     def insertIntoList(self, value, position):
         newnode = Node(value)
 
-        if self.head == None:
+        if self.head is None:
             self.head = newnode
             self.tail = newnode
         else:
@@ -33,32 +35,49 @@ class SinglyLinkedList:
             else:
                 tempnode = self.head
                 index = 0
-                while index < position-1 and tempnode:
+
+                while tempnode.next and index < position - 1:
                     tempnode = tempnode.next
-                    index += 1
+                    index += 1 
                 newnode.next = tempnode.next
                 tempnode.next = newnode
-                
                 if tempnode == self.tail:
                     self.tail = newnode
 
     def traverse(self):
         node = self.head
         if not node:
-            print('Empty list')
             return
-        while node:
-            print(node.value)
-            node = node.next
+        else:
+            while node:
+                print(node.value)
+                node = node.next
+    
+    def search(self, value):
+        node = self.head
+        count = 0
 
+        if self.head is None:
+            print('empty list')
+            return
+        else:
+            while node.next is not None:
+                count += 1
+                if node.value == value:
+                    break
+                else:
+                    node = node.next
+        print(f"Result: {count if count > 0 else 'not found'}")
 
 sll = SinglyLinkedList()
-sll.insertIntoList("A", 0)
-sll.insertIntoList("quick", -1)
-sll.insertIntoList("jumped", -1)
-sll.insertIntoList("fox", 2)
-sll.insertIntoList("over", -1)
-sll.insertIntoList("a", -1)
 
-print([ node.value for node in sll])
-sll.traverse()
+sll.insertIntoList(1,0)
+
+sll.insertIntoList(2,-1)
+sll.insertIntoList(3,10)
+sll.insertIntoList(4,4)
+
+print([node.value for node in sll])
+sll.search(2)
+
+# sll.traverse()
