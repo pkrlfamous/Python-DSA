@@ -113,10 +113,20 @@ class CircularSinglyLinkedList:
             self.tail = node
             self.length -= 1
             return
-        # ---
+        # ---------
         node.next = node.next.next
         self.length -= 1
         return
+    
+    def deleteAll(self):
+        if self.length == 0:
+            return
+        
+        self.tail.next = None
+        self.head = None
+        self.tail = None
+        self.length = 0
+        print("The entire list has been deleted.")
 
     def searching(self,nodeValue):
         if self.head is None:
@@ -161,3 +171,6 @@ print([node.value for node in csll])
 # print([node.value for node in csll])
 # csll.deletion(-1)
 # print([node.value for node in csll])
+
+csll.deleteAll()
+print([node.value for node in csll])
