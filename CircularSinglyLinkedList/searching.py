@@ -67,22 +67,28 @@ class CircularSinglyLinkedList:
         tempNode.next = newNode
         self.length += 1
     
-    def traverse(self):
+
+    def searching(self,nodeValue):
         if self.head is None:
-            print("There id not any element for traversal")
-        
+            print("List doesn't exist.")
+            return
+
         node = self.head
-        list = []
-        length = 0
+        index = -1
+        found = False
         while(node):
-            length += 1
-            list.append(node.value)
-            if self.head == node.next:
+            index += 1
+            if node.value == nodeValue:
+                found = True
                 break
             node = node.next
-        print(list)
-        print('length traverse', length)
-
+            if node == self.head:
+                break
+        
+        if not found:
+            print(f"{nodeValue} not found in the list.")
+        else:
+            print(f"{nodeValue} found in index {index}.")
 
 csll = CircularSinglyLinkedList()
 csll.creation('a')
@@ -96,3 +102,4 @@ csll.insertion('over',csll.length)
 csll.insertion('jumped',csll.length)
 print([node.value for node in csll])
 
+csll.searching('a')
