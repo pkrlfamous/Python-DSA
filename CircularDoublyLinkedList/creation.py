@@ -14,13 +14,17 @@ class CircularDoublyLinkedList:
     
     def __iter__(self):
         node = self.head
+        if not node:
+            print("empty list")
+            return
+        
         while(node):
             yield node
 
             if self.head == node.next:
                 break
             node = node.next
-            print("this is the value ",self.head.value, self.node.value)
+            print("this is the value ",self.head.value, node.value)
     
     def creation(self,value):
 
@@ -30,7 +34,7 @@ class CircularDoublyLinkedList:
         newNode.next = newNode
         newNode.prev = newNode
         self.tail = newNode
-        self.length += 1
+        self.length = 1
 
 
 cdll = CircularDoublyLinkedList()

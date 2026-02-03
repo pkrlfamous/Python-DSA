@@ -14,6 +14,10 @@ class CircularDoublyLinkedList:
     
     def __iter__(self):
         node = self.head
+        if not node:
+            print("empty list")
+            return
+        
         while(node):
             print("this is the value head", self.head.value, "node",node.next.value)
             yield node
