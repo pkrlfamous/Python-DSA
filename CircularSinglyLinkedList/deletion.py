@@ -108,6 +108,7 @@ class CircularSinglyLinkedList:
             node = node.next
         
         # this is dead block
+        # ------
         if node.next == self.tail:
             node.next = node.next.next
             self.tail = node
