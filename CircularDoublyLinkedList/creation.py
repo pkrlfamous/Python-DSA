@@ -16,18 +16,22 @@ class CircularDoublyLinkedList:
         node = self.head
         while(node):
             yield node
+
             if self.head == node.next:
                 break
             node = node.next
+            print("this is the value ",self.head.value, self.node.value)
     
     def creation(self,value):
 
         newNode = Node(value)
 
         self.head = newNode
-        newNode.next = self.head
-        newNode.prev = self.head
+        newNode.next = newNode
+        newNode.prev = newNode
         self.tail = newNode
+        self.length += 1
+
 
 cdll = CircularDoublyLinkedList()
 cdll.creation(4)
