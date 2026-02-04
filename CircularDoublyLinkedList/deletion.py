@@ -173,11 +173,11 @@ class CircularDoublyLinkedList:
         print('position',position)
         while index < position - 1:
             tempNode = tempNode.next
-            index += 1
 
             if tempNode.next == self.head:
                 print("No node exist in provided position")
                 return
+            index += 1
 
         if tempNode.next == self.tail:
             tempNode.next = self.tail.next
